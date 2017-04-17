@@ -1,6 +1,11 @@
 module RCSW
   module Client
     class GetRecords < Operation
+      def initialize(csw_url, output_schema)
+        @output_schema = output_schema
+        super(csw_url)
+      end
+
       def reload!
         @records = nil
         @request_params = nil
@@ -34,7 +39,7 @@ module RCSW
           'resultType' => 'results',
           'ElementSetName' => 'full',
           'outputFormat' => 'application/xml',
-          'outputSchema' => "http://www.opengis.net/cat/csw/2.0.2"
+          'outputSchema' => @output_schema
         }
         
         format = RCSW::Records::Base.new
