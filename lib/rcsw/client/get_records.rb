@@ -44,6 +44,8 @@ module RCSW
         
         format = RCSW::Records::Base.new
         request_url = self.build_url(@csw_url, 'GetRecords', capabilities.version, @request_params)
+
+        puts request_url
         
         request = format.read(Curl.get(request_url).body_str)
         
