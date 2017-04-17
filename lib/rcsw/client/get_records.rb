@@ -39,6 +39,7 @@ module RCSW
           'resultType' => 'results',
           'ElementSetName' => 'full',
           'outputFormat' => 'application/xml',
+          'typeNames' => 'csw:Record',
           'outputSchema' => @output_schema
         }
         
